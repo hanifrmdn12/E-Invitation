@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2d4a43" />
+    <title>Adinda & John — Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="opening" id="opening" aria-modal="true" role="dialog">
+      <div class="opening__content">
+        <p class="eyebrow">The Wedding Of</p>
+        <h1>Adinda <span>&amp;</span> John</h1>
+        <p class="guest">Kepada Yth.<br /><strong id="guest-name">Tamu Undangan</strong></p>
+        <button class="button button--light" id="open-invitation" type="button">Buka Undangan</button>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero section">
+        <div class="hero__ornament hero__ornament--top" aria-hidden="true">✦</div>
+        <p class="eyebrow">The Wedding Of</p>
+        <h1>Adinda <span>&amp;</span> John</h1>
+        <p class="hero__date">Minggu, 20 Desember 2026</p>
+        <a class="scroll-hint" href="#couple" aria-label="Lihat undangan">↓</a>
+      </section>
+
+      <section class="section quote" id="couple">
+        <p class="arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا</p>
+        <p>“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri.”</p>
+        <small>QS. Ar-Rum: 21</small>
+      </section>
+
+      <section class="section couple-grid">
+        <article class="person">
+          <div class="portrait portrait--woman"><span>AD</span></div>
+          <p class="eyebrow">The Bride</p>
+          <h2>Adinda Mawaria</h2>
+          <p>Putri bungsu dari<br />Bapak Sanusi, S.M. &amp; Ibu Jubaedah</p>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">@adinda</a>
+        </article>
+        <div class="ampersand" aria-hidden="true">&amp;</div>
+        <article class="person">
+          <div class="portrait portrait--man"><span>JD</span></div>
+          <p class="eyebrow">The Groom</p>
+          <h2>John Doe, S.Kom.</h2>
+          <p>Putra pertama dari<br />Bapak Akbar, S.Kom. &amp; Ibu Siti Maimunah</p>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">@john_doe</a>
+        </article>
+      </section>
+
+      <section class="section countdown-section">
+        <p class="eyebrow">Save The Date</p>
+        <h2>Menuju Hari Bahagia</h2>
+        <div class="countdown" id="countdown" aria-label="Hitung mundur acara"></div>
+      </section>
+
+      <section class="section events" id="event">
+        <p class="eyebrow">Wedding Event</p>
+        <h2>Rangkaian Acara</h2>
+        <div class="event-grid">
+          <article class="event-card">
+            <span>01</span><h3>Akad Nikah</h3>
+            <p>Minggu, 20 Desember 2026<br />09.00 WIB — selesai</p>
+            <p>Masjid Al-Barkah<br />Bekasi, Jawa Barat</p>
+          </article>
+          <article class="event-card">
+            <span>02</span><h3>Resepsi</h3>
+            <p>Minggu, 20 Desember 2026<br />15.00 WIB — selesai</p>
+            <p>Plataran Menteng<br />Jakarta Pusat</p>
+          </article>
+        </div>
+        <a class="button" href="https://maps.google.com/?q=Plataran+Menteng" target="_blank" rel="noreferrer">Lihat Lokasi</a>
+      </section>
+
+      <section class="section gallery">
+        <p class="eyebrow">Our Moments</p>
+        <h2>Precious Moments</h2>
+        <div class="gallery-grid" aria-label="Tempat galeri foto">
+          <div class="gallery-item gallery-item--large">Foto Kita</div>
+          <div class="gallery-item">Foto Kita</div>
+          <div class="gallery-item">Foto Kita</div>
+        </div>
+      </section>
+
+      <section class="section rsvp" id="rsvp">
+        <p class="eyebrow">RSVP</p>
+        <h2>Konfirmasi Kehadiran</h2>
+        <p>Mohon isi konfirmasi agar kami dapat mempersiapkan hari istimewa ini dengan baik.</p>
+        <form id="rsvp-form">
+          <label>Nama<input name="name" required placeholder="Nama Anda" /></label>
+          <label>Jumlah tamu<input name="guests" type="number" min="1" max="10" value="1" required /></label>
+          <label>Kehadiran<select name="attendance"><option value="hadir">Hadir, insyaAllah</option><option value="tidak-hadir">Maaf, belum bisa hadir</option></select></label>
+          <button class="button" type="submit">Kirim Konfirmasi</button>
+          <p class="form-message" id="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer><p>Terima kasih atas doa dan restunya.</p><strong>Adinda &amp; John</strong></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
