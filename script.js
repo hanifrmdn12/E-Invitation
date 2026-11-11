@@ -15,9 +15,36 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
+const music = document.querySelector('#background-music');
+const musicToggle = document.querySelector('#music-toggle');
+const musicLabel = document.querySelector('#music-label');
+
+async function setMusic(shouldPlay) {
+  if (shouldPlay) {
+    try {
+      await music.play();
+      musicToggle.classList.add('is-playing');
+      musicToggle.setAttribute('aria-pressed', 'true');
+      musicToggle.setAttribute('aria-label', 'Matikan musik');
+      musicLabel.textContent = 'Musik on';
+    } catch {
+      musicLabel.textContent = 'Musik tidak tersedia';
+    }
+    return;
+  }
+  music.pause();
+  musicToggle.classList.remove('is-playing');
+  musicToggle.setAttribute('aria-pressed', 'false');
+  musicToggle.setAttribute('aria-label', 'Nyalakan musik');
+  musicLabel.textContent = 'Musik off';
+}
+
+musicToggle.addEventListener('click', () => setMusic(music.paused));
+
 document.querySelector('#open-invitation').addEventListener('click', () => {
   document.querySelector('#opening').classList.add('is-hidden');
   document.body.classList.remove('is-locked');
+  setMusic(true);
 });
 
 const guestName = new URLSearchParams(window.location.search).get('to');
@@ -33,10 +60,21 @@ document.querySelector('#copy-account').addEventListener('click', async () => {
   const accountNumber = '532701025476536';
   const message = document.querySelector('#copy-message');
   try {
-    await navigator.clipboard.writeText(accountNumber);
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(accountNumber);
+    } else {
+      const helper = document.createElement('textarea');
+      helper.value = accountNumber;
+      helper.setAttribute('readonly', '');
+      helper.style.cssText = 'position:fixed;opacity:0';
+      document.body.append(helper);
+      helper.select();
+      document.execCommand('copy');
+      helper.remove();
+    }
     message.textContent = 'Nomor rekening berhasil disalin.';
   } catch {
-    message.textContent = `Nomor rekening: ${accountNumber}`;
+    message.textContent = `Salin manual: ${accountNumber}`;
   }
 });
 
