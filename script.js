@@ -50,6 +50,30 @@ document.querySelector('#open-invitation').addEventListener('click', () => {
 const guestName = new URLSearchParams(window.location.search).get('to');
 if (guestName) document.querySelector('#guest-name').textContent = guestName;
 
+const revealTargets = [
+  '.quote p', '.quote small', '.person', '.countdown-section > *',
+  '.event-card', '.map-embed', '.events > .button', '.gift > p:not(.eyebrow)',
+  '.gift-card', '.gallery > h2', '.gallery-grid', '.rsvp > *',
+  '.vendor-cta__content', 'footer > *',
+];
+
+const revealElements = document.querySelectorAll(revealTargets.join(','));
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.documentElement.classList.add('has-scroll-animation');
+  revealElements.forEach((element, index) => {
+    element.classList.add('reveal');
+    if (index % 4) element.classList.add(`reveal--delay-${index % 4}`);
+  });
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      currentObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -24px' });
+  revealElements.forEach((element) => observer.observe(element));
+}
+
 document.querySelector('#rsvp-form').addEventListener('submit', (event) => {
   event.preventDefault();
   document.querySelector('#form-message').textContent = 'Terima kasih, konfirmasimu sudah kami terima.';
