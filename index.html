@@ -3,18 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#2d4a43" />
-    <title>Rapunsel & John — Wedding Invitation</title>
+    <meta name="theme-color" content="#542b3f" />
+    <title>Charisya & Adma — Wedding Invitation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root{--ink:#542b3f;--sage:#a5657c;--cream:#fff5f7;--paper:#fffdfd;--gold:#c49a62}
+      body.is-locked{overflow:hidden}
+      .hero{background-image:linear-gradient(90deg,rgba(255,245,247,.94),rgba(255,245,247,.58)),url('assets/images/cover.jpeg');background-position:center;background-size:cover}
+      .opening{background-image:linear-gradient(135deg,rgba(84,43,63,.91),rgba(119,65,89,.78)),url('assets/images/cover.jpeg');background-position:center;background-size:cover}
+      .opening .eyebrow,.opening h1 span{color:#f6d8ad}.opening h1{text-shadow:0 2px 15px rgba(0,0,0,.22)}
+      .portrait--woman{background:linear-gradient(135deg,#e7b7c5,#a55b78)}.portrait--man{background:linear-gradient(135deg,#7c3e58,#321a27)}
+      .gift{background:var(--paper)}.gift>p{margin-left:auto;margin-right:auto;max-width:550px}.gift-card{background:var(--cream);border:1px solid #e9ced7;margin:30px auto 0;max-width:440px;padding:28px}.gift-card span{color:var(--sage);font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase}.gift-card strong{display:block;font-family:var(--serif);font-size:clamp(1.6rem,7vw,2.3rem);letter-spacing:.04em;margin:8px 0}
+      .gallery-item{background:#f1d8df;border:0;cursor:zoom-in;overflow:hidden;padding:0;position:relative}.gallery-item::after{background:linear-gradient(transparent 65%,rgba(84,43,63,.48));bottom:0;content:'Lihat foto';color:#fff;font-size:.68rem;font-weight:600;left:0;letter-spacing:.12em;opacity:0;padding:18px;position:absolute;text-transform:uppercase;transition:opacity .25s ease}.gallery-item:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.gallery-item:hover::after,.gallery-item:focus-visible::after{opacity:1}.gallery-item img{display:block;height:100%;object-fit:cover;transition:transform .45s ease;width:100%}.gallery-item:hover img,.gallery-item:focus-visible img{transform:scale(1.055)}.gallery-item:last-child{grid-column:1 / -1;min-height:230px}
+      .lightbox{align-items:center;background:rgba(30,12,21,.9);display:none;inset:0;justify-content:center;padding:24px;position:fixed;z-index:20}.lightbox.is-open{display:flex}.lightbox img{box-shadow:0 18px 60px rgba(0,0,0,.45);max-height:88vh;max-width:min(92vw,1000px);object-fit:contain}.lightbox button{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.55);border-radius:50%;color:#fff;cursor:pointer;font-size:1.7rem;height:42px;line-height:1;position:absolute;right:22px;top:22px;width:42px}.lightbox button:focus-visible{outline:3px solid #f6d8ad;outline-offset:3px}
+      @media (min-width:700px){.hero,.opening{background-position:center 22%}.gallery-item:last-child{min-height:290px}}
+    </style>
   </head>
-  <body>
+  <body class="is-locked">
     <div class="opening" id="opening" aria-modal="true" role="dialog">
       <div class="opening__content">
         <p class="eyebrow">The Wedding Of</p>
-        <h1>Rapunsel <span>&amp;</span> John</h1>
+        <h1>Charisya <span>&amp;</span> Adma</h1>
         <p class="guest">Kepada Yth.<br /><strong id="guest-name">Tamu Undangan</strong></p>
         <button class="button button--light" id="open-invitation" type="button">Buka Undangan</button>
       </div>
@@ -24,8 +36,8 @@
       <section class="hero section">
         <div class="hero__ornament hero__ornament--top" aria-hidden="true">✦</div>
         <p class="eyebrow">The Wedding Of</p>
-        <h1>Rapunsel <span>&amp;</span> John</h1>
-        <p class="hero__date">Minggu, 20 Desember 2026</p>
+        <h1>Charisya <span>&amp;</span> Adma</h1>
+        <p class="hero__date">Sabtu, 12 Desember 2026</p>
         <a class="scroll-hint" href="#couple" aria-label="Lihat undangan">↓</a>
       </section>
 
@@ -37,19 +49,17 @@
 
       <section class="section couple-grid">
         <article class="person">
-          <div class="portrait portrait--woman"><span>AD</span></div>
+          <div class="portrait portrait--woman"><span>CA</span></div>
           <p class="eyebrow">The Bride</p>
-          <h2>Rapunsel Mawaria</h2>
-          <p>Putri bungsu dari<br />Bapak Sanusi, S.M. &amp; Ibu Jubaedah</p>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">@adinda</a>
+          <h2>Charisya Putri Aini, S.H.</h2>
+          <p>Putri dari<br />Alm. Dr. H. Nahrowi Yusuf, M.A. &amp;<br />Hj. Ainun Mardiah, B.Sc.</p>
         </article>
         <div class="ampersand" aria-hidden="true">&amp;</div>
         <article class="person">
-          <div class="portrait portrait--man"><span>JD</span></div>
+          <div class="portrait portrait--man"><span>AS</span></div>
           <p class="eyebrow">The Groom</p>
-          <h2>John Doe, S.Kom.</h2>
-          <p>Putra pertama dari<br />Bapak Akbar, S.Kom. &amp; Ibu Siti Maimunah</p>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">@john_doe</a>
+          <h2>Adma Wijaya Siagian, S.I.Kom.</h2>
+          <p>Putra dari<br />H. Haddamaini Siagian, S.H. &amp;<br />Hj. Jamrah, S.Sos.</p>
         </article>
       </section>
 
@@ -65,25 +75,39 @@
         <div class="event-grid">
           <article class="event-card">
             <span>01</span><h3>Akad Nikah</h3>
-            <p>Minggu, 20 Desember 2026<br />09.00 WIB — selesai</p>
-            <p>Masjid Al-Barkah<br />Bekasi, Jawa Barat</p>
+            <p>Sabtu, 12 Desember 2026<br />Waktu menyusul</p>
+            <p>Aula Arrivai TPI<br />Sebelah Mesjid Arrivai, Jalan S.M. Raja 7 No. 5, Medan Amplas</p>
           </article>
           <article class="event-card">
             <span>02</span><h3>Resepsi</h3>
-            <p>Minggu, 20 Desember 2026<br />15.00 WIB — selesai</p>
-            <p>Plataran Menteng<br />Jakarta Pusat</p>
+            <p>Sabtu, 12 Desember 2026<br />Waktu menyusul</p>
+            <p>Aula Arrivai TPI<br />Sebelah Mesjid Arrivai, Jalan S.M. Raja 7 No. 5, Medan Amplas</p>
           </article>
         </div>
-        <a class="button" href="https://maps.google.com/?q=Plataran+Menteng" target="_blank" rel="noreferrer">Lihat Lokasi</a>
+        <a class="button" href="https://maps.app.goo.gl/dWD1QV6CQPrgx1o2A?g_st=iw" target="_blank" rel="noreferrer">Lihat Lokasi</a>
+      </section>
+
+      <section class="section gift">
+        <p class="eyebrow">Wedding Gift</p>
+        <h2>Amplop Digital</h2>
+        <p>Doa restu Anda adalah hadiah terindah bagi kami. Bagi yang berkenan memberikan tanda kasih, dapat dikirimkan ke:</p>
+        <div class="gift-card">
+          <span>Nomor Rekening</span>
+          <strong>532701025476536</strong>
+          <p>a.n. Charisya Putri Aini</p>
+          <button class="button" id="copy-account" type="button">Salin Nomor Rekening</button>
+          <p class="form-message" id="copy-message" aria-live="polite"></p>
+        </div>
       </section>
 
       <section class="section gallery">
         <p class="eyebrow">Our Moments</p>
         <h2>Precious Moments</h2>
-        <div class="gallery-grid" aria-label="Tempat galeri foto">
-          <div class="gallery-item gallery-item--large">Foto Kita</div>
-          <div class="gallery-item">Foto Kita</div>
-          <div class="gallery-item">Foto Kita</div>
+        <div class="gallery-grid" aria-label="Galeri foto Charisya dan Adma">
+          <div class="gallery-item gallery-item--large"><img src="assets/images/gallery-1.jpeg" alt="Momen prewedding Charisya dan Adma" /></div>
+          <div class="gallery-item"><img src="assets/images/gallery-2.jpeg" alt="Momen prewedding Charisya dan Adma" /></div>
+          <div class="gallery-item"><img src="assets/images/gallery-3.jpeg" alt="Momen prewedding Charisya dan Adma" /></div>
+          <div class="gallery-item"><img src="assets/images/gallery-4.jpeg" alt="Momen prewedding Charisya dan Adma" /></div>
         </div>
       </section>
 
@@ -101,7 +125,12 @@
       </section>
     </main>
 
-    <footer><p>Terima kasih atas doa dan restunya.</p><strong>Rapunsel &amp; John</strong></footer>
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau foto" aria-hidden="true">
+      <button id="close-lightbox" type="button" aria-label="Tutup foto">×</button>
+      <img id="lightbox-image" src="" alt="" />
+    </div>
+
+    <footer><p>Terima kasih atas doa dan restunya.</p><strong>Charisya &amp; Adma</strong></footer>
     <script src="script.js"></script>
   </body>
 </html>
